@@ -1,4 +1,4 @@
-__version__      = "1.0.0"
+__version__      = "1.0.1"
 __author__       = "The Fool"
 __author_email__ = ""
 __description__  = "Unofficial Python SDK for the Talkin social API — encrypted, fast, and easy to use."
