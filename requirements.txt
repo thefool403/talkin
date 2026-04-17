@@ -1,0 +1,7 @@
+# Runtime dependencies
+requests>=2.28.0
+
+# Development / testing
+pytest>=7.0
+pytest-mock>=3.10
+responses>=0.23
