@@ -1,4 +1,4 @@
-name: Discord Repo Updates
+name: Discord Repo Update
 
 on:
   push:
@@ -11,33 +11,44 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
           -d '{
+            "username": "GitHub Monitor",
             "embeds": [{
-              "title": "📦 Repository Updated",
-              "description": "New commit pushed to repository.",
-              "color": 5814783,
+              "title": "📦 Repository Update",
+              "url": "https://github.com/${{ github.repository }}",
+              "description": "A new commit has been pushed to the repository.",
+              "color": 3447003,
               "fields": [
                 {
-                  "name": "Repository",
-                  "value": "${{ github.repository }}",
+                  "name": "📁 Repository",
+                  "value": "[${{ github.repository }}](https://github.com/${{ github.repository }})",
                   "inline": true
                 },
                 {
-                  "name": "Branch",
+                  "name": "🌿 Branch",
                   "value": "${{ github.ref_name }}",
                   "inline": true
                 },
                 {
-                  "name": "Author",
+                  "name": "👤 Author",
                   "value": "${{ github.actor }}",
                   "inline": true
                 },
                 {
-                  "name": "Commit Message",
+                  "name": "📝 Commit Message",
                   "value": "${{ github.event.head_commit.message }}"
+                },
+                {
+                  "name": "🔗 Commit Link",
+                  "value": "${{ github.event.head_commit.url }}"
+                },
+                {
+                  "name": "🆔 Commit ID",
+                  "value": "${{ github.sha }}",
+                  "inline": true
                 }
               ],
               "footer": {
-                "text": "GitHub Repository Monitor"
+                "text": "GitHub Repository Tracker"
               },
               "timestamp": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'"
             }]
